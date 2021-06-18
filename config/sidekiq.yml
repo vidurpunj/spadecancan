@@ -1,0 +1,4 @@
+:queues:
+  - default
+  - bulk_mails
+  - generate_users
