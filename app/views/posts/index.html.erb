@@ -15,12 +15,12 @@
   <tbody>
   <% @posts.each do |post| %>
     <tr>
-      <td><%= post.user.name %></td>
+      <td><%= post.user.email %></td>
       <td><%= post.body %></td>
       <td><%= post.title %></td>
-      <td><%= link_to 'Show', post %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', post if can? :read, post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) if can? :update, post %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, post %></td>
     </tr>
   <% end %>
   </tbody>

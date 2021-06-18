@@ -22,7 +22,9 @@
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/posts">Posts</a>
+        <% if user_signed_in? %>
+          <a class="nav-link" href="/posts">Posts</a>
+        <% end %>
       </li>
     </ul>
   </ul>
